@@ -1,0 +1,56 @@
+
+
+<div class="row d-flex justify-content-center">
+        
+    <div class="col-md-9 mt-3 mb-3 "> 
+
+      <div class="row product m-2 p-3">
+
+          
+          <div *ngIf="houseImages.length" class="col-12 images">
+            <button (click)="swipeLeft()">Prev</button>
+            <img class="ms-1 me-1" [src]="houseImages[imageNumber].url" alt="houseImages">
+            <button (click)="swipeRight()">Next</button>
+          </div>
+
+          <div class="col-12 houseDetails">
+            <h4 class="card-title">{{item.name}}</h4> 
+            <p class="card-text">{{item.description}}</p> 
+            <p class="card-text">{{item.description2}}</p>
+            <p class="card-text"><label>City :  </label> {{item.city}}</p>
+            <p class="card-text"><label>Location :  </label> {{item.location}}</p>
+            <p class="card-title"><label>Price :  </label> {{item.price}}$</p>
+            <p class="card-text"><label>Owner : </label> {{item.owner}}</p>
+            <p class="card-text"><label>Contact :  </label> {{item.contactus}}</p>
+
+            <p *ngIf="item.status!='available'" style="background-color: rgb(155 41 41); color: white; border-radius: 4px;" class="card-text">{{item.status | titlecase}}</p>
+
+          </div>
+
+          <div *ngIf="userService.isUser && !showConfirmationForm && item.status=='available'" class="col-12 d-flex justify-content-center">
+            <button (click)="showForm()" class="card-link btn">Book Now</button>
+          </div>
+
+          <div *ngIf="showConfirmationForm" class="col-12 d-flex justify-content-center mt-3">
+
+              <form class="handler" #confirmPurchaseForm="ngForm" ngNativeValidate (ngSubmit)="confirmPurchase(confirmPurchaseForm.value)">
+
+                <span>
+                  <label>Name</label>  <input required ngModel name="buyer" type="text">
+                  <label>Contact</label>  <input required ngModel name="contact" type="number">
+                  <label>Leaving Date</label>  <input [min]="getCurrentDate()" required ngModel name="leaving" type="date">
+                </span>
+                
+                <button type="submit" class="card-link btn">Confirm</button>
+
+              </form>
+            
+          </div>
+
+        </div>
+    
+    </div>
+</div>
+
+
+

@@ -1,0 +1,44 @@
+
+<div class="row" style="border-top: 2px solid white;">
+    <div class="col-12" style="min-height: 50vh; display: flex; flex-direction: column; justify-content: center;">
+        <div *ngIf="!bookingsArray.length" style="text-align: center; margin-bottom: 30px;">
+            <h2 class="mt-5">You don't have any Bookings</h2>
+            <h5 class="mt-4">"Use our website to book your next ride and experience hassle-free transportation."
+            </h5>
+        </div>
+
+        <div class="row justify-content-center mt-4">
+            <div  *ngFor="let item of bookingsArray; index as i"  class="col-sm-9 loop">
+                <div> <p style="text-align: center;">BookingId : {{item.id}} - ({{item.bookingDate}}) <p> </div>
+
+                <div style="display: flex;flex-wrap: wrap; justify-content: space-between;">
+                    <div><p>From : {{item.fromPlace}}</p> </div>
+                    <div><p>To : {{item.toPlace}}</p> </div>
+                </div>
+                
+                <div style="display: flex;flex-wrap: wrap; justify-content: space-between;">
+                    <div> <p>Departure Date : {{item.departureDate}}</p> </div>
+                    <div> <p>Arrival Date : {{item.arrivalDate}}</p> </div>
+                </div>
+                
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+                    <div> <p>Car Type : {{item.carType}}</p>  </div>
+                    <div> <p>Distance: {{item.distance}}km</p> </div>
+                </div>
+                
+                <div> <p> Cost : {{item.cost}}$</p> </div>
+
+                <div style="width: 100%; display: flex; justify-content: center;">
+                    
+                <button *ngIf=" item.status=='requested'" type="button" (click)="delete(item.id,i)" class="btn">Cancel</button>
+                <button *ngIf=" item.status!='requested'" type="button" class="btn approvedBtn">{{item.status}}</button>
+                       
+                </div>
+            
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

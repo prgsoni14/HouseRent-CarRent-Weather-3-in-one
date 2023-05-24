@@ -1,0 +1,43 @@
+
+button{
+    border-radius: 5px;
+    border: 1px solid white;
+    margin-top: 10px;
+    background-color: palevioletred;
+    color: white;
+}
+
+button:hover{
+    background-color: black;
+    color: rgb(255, 148, 166);
+}
+.product{
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+}
+img {
+    width: 60%; /* fixed width */
+    height: 140px; /* fixed height */
+    object-fit: cover; /* crop as necessary */
+    border-radius: 5px;
+    cursor:pointer;
+  } 
+h5,p{
+    margin-top: 10px;
+    text-align: center;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.355);
+}
+
+.statusBtn:hover{
+    background-color: palevioletred;
+    color: white;
+    cursor:alias;
+}
+
+.bottomBtns{
+    display: flex;
+    flex-direction: column;
+}

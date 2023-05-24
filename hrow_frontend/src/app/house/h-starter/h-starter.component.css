@@ -1,0 +1,26 @@
+
+h1, h4{
+    color: black;
+}
+p{
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    text-align: justify;
+    padding: 9%;
+    font-weight: 520
+}
+button{
+    width: 20%;
+    background-color: rgb(26, 54, 91);
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 2px solid white;
+}
+button:hover{
+    background-color:  rgb(240, 151, 180);
+}
+
+.bg{
+    background-image: url("src/assets/houses2.jpg");
+}

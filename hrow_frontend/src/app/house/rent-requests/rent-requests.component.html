@@ -1,0 +1,42 @@
+
+<div class="row">
+
+    <div *ngIf="!rentRequests.length" class="col-12 mt-5 mb-5">
+        <h5>Unfortunately, We have No active rent Requests</h5>
+    </div>
+
+    <div class="col-lg-3 col-md-4 col-sm-6 products mt-3 mb-3" *ngFor="let item of rentRequests;index as i"> 
+
+      <div class="row product m-2 p-3 d-flex justify-content-center">
+          <div class="col-12 d-flex justify-content-center">
+            <img [src]="item.imageFile.url" alt="House image">
+          </div>
+
+          <div class="col-12">
+            <h5 class="card-title">{{item.house.name}}</h5> 
+            <p class="card-text">{{item.house.description}}</p>
+            <p class="card-text">City : {{item.house.city}}</p>
+            <p class="card-title">Price : {{item.house.price}}$</p>
+            <p class="card-text">Buyer : {{item.buyer}}</p>
+            <p class="card-text">Contact : {{item.contact}}</p>
+            <p class="card-text">Leaving : {{item.leaving}}</p>
+            
+            <p style="background-color: #3b8689; color: white; border-radius: 4px;" class="card-text">Purchase - {{item.pstatus | titlecase}} </p>
+            <p *ngIf="item.house.status=='available'" style="background-color: #3b8689; color: white; border-radius: 4px;" class="card-text">House : Available</p>
+            <p *ngIf="item.house.status!='available'" style="background-color: rgb(155 41 41); color: white; border-radius: 4px;" class="card-text">House : {{item.house.status}} </p>
+            
+            
+
+          </div>
+  
+
+          <div *ngIf="item.pstatus=='requested'" class="col-12 bottomBtns">
+            <button *ngIf="item.house.status=='available'" (click)="confirm(item.id,item.house.id,i)" >Confirm & Call</button>
+            <button (click)="reject(item.id, item.house.id,i)" >Reject</button>
+          </div>
+          
+
+        </div>
+    
+    </div>
+</div>

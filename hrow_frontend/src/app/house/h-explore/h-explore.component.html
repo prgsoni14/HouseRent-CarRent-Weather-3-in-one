@@ -1,0 +1,54 @@
+
+<div class="row" >
+
+    <div style="flex-wrap: wrap;" class="col-12 d-flex justify-content-center categoryBtn mt-2">
+            <button (click)="getByCity('All')">All</button>
+            <button (click)="getByCity('Bangalore')">Bangalore</button>
+            <button (click)="getByCity('Mumbai')">Mumbai</button>
+            <button (click)="getByCity('Delhi')">Delhi</button>
+            <button (click)="getByCity('Hyderabad')">Hyderabad</button>
+          </div>
+          
+      <div class="col-12 justify-content-center searchBar">
+        <p style="border-bottom: 0px; margin-top:0px;margin-bottom: 2px;">
+          <input required [(ngModel)]="searchKeyword" name="name" type="text">
+          <button id="searchBtn" style="background-color: rgb(34, 168, 229) ;" (click)="search()">Search</button>
+        </p>
+      </div>
+
+      <div *ngIf="!houses.length" class="col-12 mt-5 mb-5">
+            <h4 style="text-align: center">
+                  No results found
+            </h4>
+      </div> 
+
+      <div class="col-12">
+          <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-6 products mt-3 mb-3" *ngFor="let item of houses;index as i"> 
+        <div  class="row product m-2 p-3 d-flex justify-content-center">
+            <div class="col-12 d-flex justify-content-center">
+              <img (click)="toHouse(i)" [src]="item.imageFile.url" alt="Product image">
+            </div>
+
+            <div class="col-12">
+              <h5 class="card-title">{{item.name}}</h5> 
+              <p class="card-text">{{item.description}}</p> 
+              <p class="card-text">{{item.description2}}</p>
+              <p class="card-text">{{item.city}}</p>
+              <p class="card-title">Price : {{item.price}}$</p>
+              <p class="card-text">Owner : {{item.owner}}</p>
+
+
+              <p *ngIf="item.status=='available'" style="background-color: #3b8689; color: white; border-radius: 4px;" class="card-text">{{item.status | titlecase}}</p>
+              <p *ngIf="item.status!='available'" style="background-color: rgb(155 41 41); color: white; border-radius: 4px;" class="card-text">{{item.status | titlecase}}</p>
+
+            </div>
+          </div>
+      </div>
+          </div>
+      </div>
+            
+      
+      
+</div>
+

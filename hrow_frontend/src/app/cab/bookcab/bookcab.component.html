@@ -1,0 +1,52 @@
+
+
+
+    <div class="row justify-content-center introCC" style="border-top: 1px solid white;">
+
+        <div class="col-md-6 col-sm-8 p-5 intro mt-5">
+
+            <h1>Book Your Trip</h1>
+            <h5>A journey of thousand miles starts with a single step</h5>
+
+            <form ngNativeValidate #cabForm="ngForm" (ngSubmit)="book(cabForm.value)">
+
+                <input required ngModel name="fromPlace" type="text" placeholder="From">
+                <input required ngModel name="toPlace" type="text" placeholder="To">
+                <input required ngModel name="contact" type="text" placeholder="Contact">
+
+                <div >
+                    <input [min]="getCurrentDate()" 
+                    [max]="getMaxDate()" required ngModel name="departureDate" type="date">
+                    <label>Departure Date</label>
+                </div>
+
+                <div >
+                    <input [min]="getCurrentDate()" 
+                    [max]="getMaxDate2()" required ngModel name="arrivalDate" type="date">
+                    <label>Arrival Date</label>
+                </div>
+
+
+                <div style="text-align: center; margin-top: 8px;">
+                    <label style="font-size: 122%;" for="">Car Type </label>
+                </div>
+                
+                <div class="CarType">
+                    <span>
+                        <input required type="radio" ngModel name="carType" value="Sedan"> <label for="">Sedan</label>
+                    </span>
+                     
+                    <span>
+                        <input required type="radio" ngModel name="carType" value="SUV"> <label for="">SUV</label>
+                    </span>
+                     
+                    <span>
+                        <input required type="radio" ngModel name="carType" value="Bus"> <label for="
+                    ">Bus</label>
+                    </span>
+                </div>
+                <button type="submit">Book</button>
+            </form>
+        </div>
+
+    </div>

@@ -1,0 +1,47 @@
+
+button{
+    border-radius: 5px;
+    border: 1px solid white;
+    margin-top: 10px;
+    background-color: palevioletred;
+    color: white;
+}
+.categoryBtn button{
+    margin-top: 0px;
+}
+
+button:hover{
+    background-color: black;
+    color: rgb(255, 148, 166);
+}
+.product{
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+}
+img {
+    width: 80%; /* fixed width */
+    height: 200px; /* fixed height */
+    object-fit: cover; /* crop as necessary */
+    border-radius: 5px;
+    cursor:pointer;
+  } 
+h5,p{
+    margin-top: 10px;
+    text-align: center;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.355);
+}
+input,select{
+    padding: 2px;
+    border-radius: 5px;
+    margin: 3px;
+    font-weight: 600;
+    border:0px; 
+    text-align: center;
+}
+
+#searchBtn:hover{
+    background-color: black !important;
+}

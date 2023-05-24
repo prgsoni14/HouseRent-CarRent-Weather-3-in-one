@@ -1,0 +1,38 @@
+
+<div class="row">
+
+  <div *ngIf="!purchases.length" class="col-12 mt-5 mb-5">
+      <h5>No Active Rent Requests </h5>
+  </div>
+
+  <div class="col-lg-3 col-md-4 col-sm-6 products mt-3 mb-3" *ngFor="let item of purchases;index as i"> 
+
+    <div class="row product m-2 p-3 d-flex justify-content-center">
+        <div class="col-12 d-flex justify-content-center">
+          <img [src]="item.imageFile.url" alt="House image">
+        </div>
+
+        <div class="col-12">
+          <h5 class="card-title">{{item.house.name}}</h5> 
+          <p class="card-text">{{item.house.description}}</p>
+          <p class="card-text">City : {{item.house.city}}</p>
+          <p class="card-title">Price : {{item.house.price}}/-</p>
+          <p class="card-text">MyContact : {{item.contact}}</p>
+          <p class="card-text">Leaving : {{item.leaving}}</p>
+          
+          <p *ngIf="item.pstatus=='requested' || item.pstatus=='booked' " style="background-color: #3b8689; color: white; border-radius: 4px;" class="card-text">Status - {{item.pstatus | titlecase}}</p>
+          <p *ngIf="item.pstatus=='rejected'" style="background-color: rgb(155 41 41); color: white; border-radius: 4px;" class="card-text">Status - {{item.pstatus | titlecase}}</p>
+
+
+          <p *ngIf="item.house.status=='available'" style="background-color: #3b8689; color: white; border-radius: 4px;" class="card-text">House : Available</p>
+          <p *ngIf="item.house.status!='available' && item.pstatus!='booked' " style="background-color: rgb(155 41 41); color: white; border-radius: 4px;" class="card-text">House : Unavailable</p>
+
+        </div>
+
+        <div *ngIf="item.pstatus!='booked'" class="col-12 d-flex justify-content-center">
+          <button (click)="cancelPurchase(item.id,i)" class="card-link">Cancel Booking</button>
+        </div>
+      </div>
+  
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="miniNavBar"> 
+    <a *ngIf="userService.isAdmin" routerLink="/house/admin">Admin</a>
+    <a *ngIf="userService.isUser" routerLink="/house/userrequests">Status</a>
+    <a routerLink="/house/explore">Explore</a>
+</div>
+  
+<div class="container-fluid">
+    <router-outlet> </router-outlet>
+</div>

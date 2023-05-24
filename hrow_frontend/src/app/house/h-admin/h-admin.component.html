@@ -1,0 +1,87 @@
+
+<div class="row justify-content-center adminPage">
+
+
+    <div class="col-12 handler" >
+        <button class="bottomButton mb-2" routerLink="/house/adminrequests" >Rent Requests</button>
+    </div>
+    
+
+
+    <div class="col-12">
+        <div class="row">
+            <div class="col-12 handler">
+
+                    <div class="row" style="width: 100%;">
+                        
+                        <h5 *ngIf="!houses.length">Start our House Rental Service</h5>
+                        <div class="col-lg-3 col-md-4 col-sm-6 products mt-3 mb-3" *ngFor="let item of houses; index as i"> 
+
+                        <div class="row product m-2 p-3 d-flex justify-content-center">
+                            <div class="col-12 d-flex justify-content-center">
+                                <img [src]="item.imageFile.url" (click)="toHouse(i)" alt="House image">
+                            </div>
+
+                            <div class="col-12">
+                                <h5 class="card-title">{{item.name}}</h5> 
+                                <p class="card-text">{{item.description}}</p> 
+                                <p class="card-text">{{item.description2}}</p>
+                                <p class="card-text">{{item.city}}</p>
+                                <p class="card-text">{{item.location}}</p>
+                                <p class="card-title">Price : {{item.price}}$</p>
+                                <p class="card-text">Seller : {{item.owner}}</p>
+                                <p class="card-text">Contact : {{item.contactus}}</p>
+                    
+                    
+                                <p *ngIf="item.status!='available'" style="background-color: rgb(155 41 41);; color: white; border-radius: 4px;" class="card-text">{{item.status | titlecase}}</p>
+                                <p *ngIf="item.status=='available'" style="background-color: #3b8689; color: white; border-radius: 4px;" class="card-text">{{item.status | titlecase}}</p>
+                                
+                                <div class="row">
+                                    <div class="col-12 bottomBtns">
+                            
+                                        <button *ngIf="item.status=='Booked'" class="card-text " (click)="freeHouse(item.id,i)">Free House</button>
+                                        <button class="card-text " (click)="remove(item.id,i)">Don't Rent</button>
+                                        
+                                    </div>
+                                </div>
+                    
+                              </div>
+
+                        </div>
+
+                    </div>
+                    
+                    
+                    </div>
+            </div>
+        </div>
+    </div>
+    
+    <div  class="col-12 handler">
+        <button *ngIf="!addVariable" (click)="showAdder()">Add House for Rent</button>
+
+        <form class="handler" *ngIf="addVariable" ngNativeValidate #ProductForm="ngForm" (ngSubmit)="addHouse(ProductForm.value)">
+            <label>Name</label>  <input required ngModel name="name" type="text">
+            <label>Description</label>  <input required ngModel name="description" type="text">
+            <label>Description2</label>  <input required ngModel name="description2" type="text">
+            <label>City</label>  <input required ngModel name="city" type="text">
+            <label>Location</label>  <input required ngModel name="location" type="text">
+            <label>ContactUs</label>  <input required ngModel name="contactus" type="number">
+            <label>Price</label>  <input required ngModel name="price" type="number">
+            <label>Images</label> <input style="width: 63%;" type="file" multiple required (change)="onImages($event)">
+
+            <div class="row">
+                <div class="col-12">
+                    <button type="submit">Add House</button>
+                    <button *ngIf="addVariable" (click)="showAdder()">Cancel</button>
+                </div>   
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+
+
+

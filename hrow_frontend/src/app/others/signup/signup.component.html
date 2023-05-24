@@ -1,0 +1,58 @@
+
+
+<div class="row justify-content-center introCC">
+
+    <div class="col-md-6 col-sm-8 p-5 intro">
+
+        <h1>Sign Up</h1>
+        <h5>Start Your Journey with us.</h5>
+
+        <form ngNativeValidate #SignupForm="ngForm" (ngSubmit)="submit(SignupForm.value)" enctype="multipart/form-data">
+
+            <input required ngModel name="name" type="text" placeholder="Name">
+            <input required ngModel name="email" type="email" placeholder="Email">
+
+            <div >
+                <input placeholder="example14" required ngModel name="username" type="text">
+                <label>UserName</label>
+            </div>
+
+            <div >
+                <input placeholder="********"  required ngModel name="password" type="password">
+                <label>Password</label>
+            </div> 
+
+            <div >
+                <input placeholder="1234567890" required ngModel name="mobile" type="number">
+                <label>Mobile</label>
+            </div>
+
+            <div >
+                <input placeholder="Home Street City"  required ngModel name="address" type="text">
+                <label>Address</label>
+            </div>
+
+            <div >
+                <input style="padding: 10px 0px;" required type="file" name="img" (change)="onProfilePic($event)">
+            </div>
+
+
+            <div style="text-align: center; margin-top: 8px;">
+                <label style="font-size: 122%;" for="">Role Type</label>
+            </div>
+
+
+            
+            <div style="text-align: center; display: flex; justify-content: space-between;">
+                <span>
+                    <input required="" type="radio" ngModel name="role" value="Admin"> <label for="">Admin</label>
+                </span>
+
+                <span>
+                    <input required="" type="radio" ngModel name="role" value="User"> <label for="">User</label>
+                </span>
+            </div>
+            <button type="submit">SignUp</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,91 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 introCC">
+            
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h1 class="mt-5">Your Profile</h1>
+                <h5>Our User is our Soul, without them we can't exist</h5>
+            </div>
+
+
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-6 userDetails">
+
+                   
+                        <div class=" d-flex justify-content-center">
+                            <img [src]="userPic" class="img-fluid" alt="">
+                        </div>
+                        <div> 
+                            <p style="text-align: center;">UserId : {{user.id}}<p> 
+                            <p *ngIf="toastVariable" id="toast">Successful, Taking you to login page</p>
+                            <p *ngIf="deleteVariable" id="toast">Successfuly deleted, Taking you to Home page</p>
+                            
+                        </div>
+
+
+                        <form ngNativeValidate #updateForm="ngForm" (ngSubmit)="updateUser()">
+                                <div style="display: flex;flex-wrap: wrap; justify-content: space-between;">
+                                        <div>
+                                            <p *ngIf="!updateVariable">Name : {{user.name}}</p>  
+                                            <p *ngIf="updateVariable">Name : <input required [(ngModel)]="user.name" type="text" name="name"></p>
+                                        </div>
+
+                                        <div>
+                                            <p *ngIf="!updateVariable">Mobile : {{user.mobile}}</p> 
+                                            <p *ngIf="updateVariable">Mobile : <input required [(ngModel)]="user.mobile" width="100%" type="number" name="mobile"></p> 
+                                        </div> 
+                                </div>
+                                
+
+                                <div style="display: flex;flex-wrap: wrap; justify-content: space-between;">
+                                    <div> 
+                                        <p *ngIf="!updateVariable">Email : {{user.email}}</p> 
+                                        <p *ngIf="updateVariable">Email : <input required [(ngModel)]="user.email" type="email" name="email"></p> 
+                                    </div>
+                                    <div> 
+                                        <p *ngIf="!updateVariable">Password : **********</p> 
+                                        <p *ngIf="updateVariable">NewPassword : <input [(ngModel)]="confirmPassword" placeholder="Confirm/new Password" required type="password" name="password"></p> 
+                                    </div>
+                                </div>
+                                
+                                <div style="display: flex;flex-direction: column;">
+                                    <div> 
+                                        <p *ngIf="!updateVariable"> Username : {{user.username}}</p> 
+                                        <p *ngIf="updateVariable"> Username :  <input required [(ngModel)]="user.username" type="text" name="username"></p>
+                                    </div>
+                                    <div> 
+                                        <p *ngIf="!updateVariable"> Address : {{user.address}}</p> 
+                                        <p *ngIf="updateVariable"> Address :  <input required [(ngModel)]="user.address" type="text" name="address"></p>
+                                    </div>
+                                    <div> 
+                                        <p> Role : {{user.role}}</p>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex;flex-wrap: wrap; justify-content: center;">
+                                    <div *ngIf="!updateVariable"> 
+                                        <p><button (click)="showUpdater()">Update Profile</button></p>
+                                    </div>
+
+                                    <div *ngIf="updateVariable"> 
+                                        <p><button (click)="showUpdater()">Cancel</button></p> 
+                                    </div>
+                                    
+                                    <div *ngIf="!updateVariable"> 
+                                        <p><a (click)="deleteAccount(user.id)">Delete Account</a></p>
+                                    </div>
+
+                                    <div *ngIf="updateVariable"> 
+                                        <p><button type="submit">Submit</button></p>
+                                    </div>
+                                </div>
+                        </form>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,5 @@
+.container-fluid{
+    z-index: -1;
+    background: rgb(223,236,232);
+    background: radial-gradient(circle, rgba(223,236,232,1) 0%, rgba(140,184,245,1) 94%);
+}

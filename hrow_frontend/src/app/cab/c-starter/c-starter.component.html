@@ -1,0 +1,15 @@
+
+<div class="row p-5 justify-content-center" style="border-top: 2px solid white; min-height: 70vh;">
+    <div class="col-md-7 intro">
+
+            <h1>MyTour</h1>
+            <h4>Car Rental Service</h4>
+            <p >Welcome to our hassle-free and reliable car rental booking website! Our mission is to make transportation easy, safe and comfortable for everyone. Whether you need a ride to the airport, a business meeting, or just around the city, our platform provides a convenient way to book a cab at your fingertips.With our user-friendly interface, booking a cab is just a few clicks away. You can easily choose your pickup and drop-off locations, select your preferred cab type, and view the estimated fare before confirming your booking. Our fleet of modern and well-maintained cabs ensures that you always travel in comfort and style.</p> 
+
+            <button *ngIf="!userService.isLoggedin" routerLink="/user/login">Login</button>
+            <button style="font-weight: 500;" *ngIf="userService.isAdmin" routerLink="/cab/admin">Booking Requests</button>
+            <button style="font-weight: 500;" *ngIf="userService.isUser" routerLink="/cab/bookcab">Book Now</button>
+            
+    </div>
+</div> 
+

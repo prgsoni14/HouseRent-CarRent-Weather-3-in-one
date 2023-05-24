@@ -1,0 +1,8 @@
+<div class="miniNavBar" > 
+    <a *ngIf="userService.isUser" routerLink="/cab/bookings">Bookings</a>
+    <a *ngIf="userService.isUser" routerLink="/cab/bookcab">Booknow</a>
+</div>
+
+<div class="container-fluid introCC">
+    <router-outlet> </router-outlet>
+</div>

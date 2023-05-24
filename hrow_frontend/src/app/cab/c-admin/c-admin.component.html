@@ -1,0 +1,90 @@
+
+
+
+
+<div class="row">
+
+    <div class="col-12" style="min-height: 50vh; display: flex; flex-direction: column; justify-content: center;">
+        <div *ngIf="!bookingRequestArray.length && !approvalShowVariable" style="text-align: center; margin-bottom: 30px;">
+            <h2 class="mt-5">No Booking Requests Available</h2>
+        </div>
+
+        <div *ngIf="!approvalsArray.length && approvalShowVariable" style="text-align: center; margin-bottom: 30px;">
+            <h2 class="mt-5">Unfortunately We have not got any Bookings</h2>
+        </div>
+
+
+        <div class="mt-2" style="text-align: center;">
+            <button class="approvalsBtn" (click)="showApprovalsByUs()">Our Approvals</button>
+        </div>
+
+        <div *ngIf="!approvalShowVariable && bookingRequestArray.length" class="row justify-content-center mt-4">
+            <div class="col-12">
+                <h5 style="text-align: center; color:black">Order Requests</h5>
+            </div>
+            <div  *ngFor="let item of bookingRequestArray; index as i"  class="col-sm-9 loop">
+                <div> <p style="text-align: center;">BookingId : {{item.id}} - ({{item.bookingDate}}) <p> </div>
+
+                <div style="display: flex;flex-wrap: wrap; justify-content: space-between;">
+                    <div><p>From : {{item.fromPlace}}</p> </div>
+                    <div><p>To : {{item.toPlace}}</p> </div>
+                </div>
+                
+                <div style="display: flex;flex-wrap: wrap; justify-content: space-between;">
+                    <div> <p>Departure Date : {{item.departureDate}}</p> </div>
+                    <div> <p>Arrival Date : {{item.arrivalDate}}</p> </div>
+                </div>
+                
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+                    <div> <p>Car Type : {{item.carType}}</p>  </div>
+                    <div> <p>Distance: {{item.distance}}km</p> </div>
+                </div>
+                
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between;"> 
+                    <p> Cost : {{item.cost}}$</p> 
+                    <p> Contact : {{item.contact}}</p> 
+                </div>
+
+                <div style="width: 100%; display: flex; justify-content: center;">
+                    
+                <button *ngIf=" item.status=='requested'" type="button" (click)="approve(item.id,i)" class="btn">Approve</button>
+                <button *ngIf=" item.status!='requested'" > Approved Successfully </button>
+
+                </div>
+            
+            </div>
+        </div>
+
+
+        <div *ngIf="approvalShowVariable" class="row justify-content-center mt-4">
+            <div  *ngFor="let item of approvalsArray; index as i"  class="col-sm-9 loop">
+                <div> <p style="text-align: center;">BookingId : {{item.id}} - ({{item.bookingDate}}) <p> </div>
+
+                <div style="display: flex;flex-wrap: wrap; justify-content: space-between;">
+                    <div><p>From : {{item.fromPlace}}</p> </div>
+                    <div><p>To : {{item.toPlace}}</p> </div>
+                </div>
+                
+                <div style="display: flex;flex-wrap: wrap; justify-content: space-between;">
+                    <div> <p>Departure Date : {{item.departureDate}}</p> </div>
+                    <div> <p>Arrival Date : {{item.arrivalDate}}</p> </div>
+                </div>
+                
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+                    <div> <p>Car Type : {{item.carType}}</p>  </div>
+                    <div> <p>Distance: {{item.distance}}km</p> </div>
+                </div>
+                
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between;"> 
+                    <p> Cost : {{item.cost}}$</p> 
+                    <p> Contact : {{item.contact}}</p> 
+                </div>
+        
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+

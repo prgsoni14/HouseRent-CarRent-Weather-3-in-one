@@ -1,0 +1,39 @@
+
+<div class="row justify-content-center introCC">
+
+    <div class="col-md-6 col-sm-8 p-5 intro">
+
+        <h1>Log In</h1>
+        <h5 class="mb-4">Start Your Journey with us.</h5>
+
+        <form ngNativeValidate #LoginForm="ngForm" (ngSubmit)="submit(LoginForm.value)">
+
+            <div >
+                <input placeholder="example14" required ngModel name="username" type="text">
+                <label>UserName</label>
+            </div>
+
+            <div >
+                <input placeholder="********"  required ngModel name="password" type="password">
+                <label>Password</label>
+            </div>
+
+         
+            <div style="text-align: center; margin-top: 8px;">
+                <label style="font-size: 122%;" for="">Are You _?</label>
+            </div>
+            
+            <div style="text-align: center; display: flex; justify-content: space-between;">
+                <span>
+                    <input required="" name="radio" type="radio"> <label for="">Robot</label>
+                </span>
+
+                <span>
+                    <input required="" name="radio" type="radio" > <label for="">Human</label>
+                </span>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</div>

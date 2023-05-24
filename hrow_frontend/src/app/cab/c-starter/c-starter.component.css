@@ -1,0 +1,21 @@
+
+h1, h4{
+    color: white;
+}
+p{
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    text-align: justify;
+    padding: 7%;
+}
+button{
+    width: 20%;
+    background-color: rgb(66, 142, 242);
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 2px solid white;
+}
+button:hover{
+    background-color:  rgb(240, 151, 180);
+}
